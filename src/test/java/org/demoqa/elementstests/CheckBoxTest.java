@@ -1,27 +1,14 @@
 package org.demoqa.elementstests;
 
 import org.demoqa.BaseTest;
-import org.demoqa.driver.WebDriverFactory;
 import org.demoqa.flow.elementspageflow.CheckBoxFlow;
-import org.demoqa.flow.elementspageflow.RadioButtonFlow;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class CheckBoxTest extends BaseTest {
 
-//    private static WebDriver driver;
     private static CheckBoxFlow checkBoxFlow;
-
-//    @BeforeSuite
-//
-//    public static void init() {
-//        driver = WebDriverFactory.getDriver("chrome");
-//        checkBoxFlow = new CheckBoxFlow(driver);
-//    }
 
     @BeforeMethod
     public void OpenPage() {
@@ -29,15 +16,15 @@ public class CheckBoxTest extends BaseTest {
         checkBoxFlow = new CheckBoxFlow(driver);
     }
 
-    @Test
+    @Test(description = "Verify Expanded List")
     public void testExpandList() {
         checkBoxFlow.getExpandedList();
-        Assert.assertTrue(checkBoxFlow.isListExpanded()); //check it
+        Assert.assertTrue(checkBoxFlow.isListExpanded());
     }
 
-    @Test
+    @Test(description = "Verify Collapsed List")
     public void testCollapseList() {
         checkBoxFlow.getCollapseList();
-        Assert.assertTrue(checkBoxFlow.isListCollapsed()); //check it
+        Assert.assertTrue(checkBoxFlow.isListCollapsed());
     }
 }

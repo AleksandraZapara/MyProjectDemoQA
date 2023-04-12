@@ -21,7 +21,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public WebElement getTitleHeader() {
-        return driver.findElement(TITLE_HEADER);
+        return Waiters.waitUntilElementIsPresent(driver, TITLE_HEADER);
     }
 
     public WebElement getUserNameField() {
@@ -37,17 +37,14 @@ public class LoginPage extends AbstractPage {
     }
 
     public WebElement getLogOutButton() {
-        return driver.findElement(LOG_OUT_BUTTON);
+        return Waiters.waitUntilElementIsPresent(driver, LOG_OUT_BUTTON);
     }
 
-//    public WebElement getErrorText() {
-//        return driver.findElement(ERROR_TEXT);
-//    }
     public WebElement getErrorText() {
-        return Waiters.waitUntilElementIsClickableFluent(driver, ERROR_TEXT);
+        return Waiters.waitUntilElementIsPresent(driver, ERROR_TEXT);
     }
 
     public WebElement getPasswordFieldRequired() {
-        return driver.findElement(PASSWORD_REQUIRED);
+        return Waiters.waitUntilElementIsPresent(driver, PASSWORD_REQUIRED);
     }
 }

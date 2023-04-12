@@ -1,25 +1,14 @@
 package org.demoqa.elementstests;
 
 import org.demoqa.BaseTest;
-import org.demoqa.driver.WebDriverFactory;
 import org.demoqa.flow.elementspageflow.RadioButtonFlow;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class RadioButtonTest extends BaseTest {
 
     private RadioButtonFlow radioButtonFlow;
-
-//    @BeforeSuite
-//
-//    public static void init() {
-//        driver = WebDriverFactory.getDriver("chrome");
-////        radioButtonFlow = new RadioButtonFlow(driver);
-//    }
 
     @BeforeMethod
     public void GoToPage() {
@@ -27,18 +16,18 @@ public class RadioButtonTest extends BaseTest {
         radioButtonFlow = new RadioButtonFlow(driver);
     }
 
-    @Test
+    @Test(description = "Verify Page Header")
     public void testPageTitle() {
         String expected = "Radio Button";
         Assert.assertEquals(expected,radioButtonFlow.getTitleText(),"Wrong Title: ");
     }
 
-    @Test
+    @Test(description = "Verify Default State")
     public void testDefaultState() {
         String expected = "Do you like the site?";
         Assert.assertEquals(expected,radioButtonFlow.getQuestionText(),"Wrong Text: ");
+        Assert.assertFalse(radioButtonFlow.isYesRadioButtonSelected());
         Assert.assertFalse(radioButtonFlow.isNoRadioButtonEnabled());
-
     }
 
     @Test
